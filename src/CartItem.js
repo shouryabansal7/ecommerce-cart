@@ -13,6 +13,20 @@ class CartItem extends React.Component{
     }
     increaseQuantity=()=>{
         console.log('this',this.state);
+        //setState form 1
+        this.setState(
+            //passing an object
+            /*{
+            qty: this.state.qty + 1
+            }*/
+            //instead of passing as object we can also pass an function
+            //setState form 2 - it prevState required use this
+            (prevSate)=>{
+                return {
+                    qty: prevSate.qty + 1
+                }
+            }
+        );
     }
     render(){
         const {price, title, qty}= this.state;
