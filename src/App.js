@@ -90,7 +90,7 @@ class App extends React.Component{
         onDecreaseQuantity = {this.handleDecreaseQuantity}
         onDeleteProduct = {this.handleDeleteProduct}
         />
-        <div style={ {padding: 10,fontSize: 20} }>
+        <div style={ {padding: 20,fontSize: 30, bottom: 0, position: "absolute",boxSizing: "border-box", color: "yellow",width: "100%",backgroundColor: "#4267b2"} }>
           Total : {this.getCartTotal()}
         </div>
       </div>
