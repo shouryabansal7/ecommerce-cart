@@ -40,6 +40,18 @@ class Cart extends React.Component{
             products: products
         })
     }
+    handleDecreaseQuantity=(product)=>{
+        console.log("Hey decrease the quantity by 1");
+        const {products} = this.state;
+        const index = products.indexOf(product);
+        if(products[index].qty===0){
+            return;
+        }
+        products[index].qty-=1;
+        this.setState({
+            products
+        })
+    }
     render(){
         //way to render a list
         //const arr = [1, 2, 3, 4, 5, "hello"];
@@ -52,6 +64,7 @@ class Cart extends React.Component{
                         product={product} 
                         key={product.id}
                         onIncreaseQuantity = {this.handleIncreaseQuantity}
+                        onDecreaseQuantity = {this.handleDecreaseQuantity}
                         />
                     )
                 }) }

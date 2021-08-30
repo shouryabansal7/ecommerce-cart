@@ -1,21 +1,9 @@
 import React from 'react';
 
 class CartItem extends React.Component{
-    decreaseQuantity=()=>{
-        //one point to note is that if qty reaches 0 then do not decrease any further
-        const {qty} = this.state;
-        if(qty === 0){
-            return;
-        }
-        this.setState((prevSate)=>{
-            return {
-                qty: prevSate.qty - 1
-            }
-        });
-    }
     render(){
         const {price, title, qty}= this.props.product;
-        const{product, onIncreaseQuantity} = this.props;
+        const{product, onIncreaseQuantity, onDecreaseQuantity} = this.props;
         console.log("this.props",this.props);
         return(
             <div className="cart-item">
@@ -38,7 +26,7 @@ class CartItem extends React.Component{
                             alt="decrease" 
                             className="action-icons" 
                             src="https://image.flaticon.com/icons/png/512/992/992683.png" 
-                            onClick={this.decreaseQuantity}
+                            onClick={()=>onDecreaseQuantity(product)}
                         />
                         <img 
                             alt="delete" 
