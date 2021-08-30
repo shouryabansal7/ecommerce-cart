@@ -2,8 +2,8 @@ import React from 'react';
 
 class CartItem extends React.Component{
     render(){
-        const {price, title, qty}= this.props.product;
-        const{product, onIncreaseQuantity, onDecreaseQuantity} = this.props;
+        const {price, title, qty, id}= this.props.product;
+        const{product, onIncreaseQuantity, onDecreaseQuantity, onDeleteProduct} = this.props;
         console.log("this.props",this.props);
         return(
             <div className="cart-item">
@@ -32,6 +32,7 @@ class CartItem extends React.Component{
                             alt="delete" 
                             className="action-icons" 
                             src="https://img-premium.flaticon.com/png/512/484/premium/484611.png?token=exp=1629985995~hmac=b4aa1deb651b98762bce549e42fee052"
+                            onClick={()=>onDeleteProduct(id)}
                         />
                     </div>
                 </div>
